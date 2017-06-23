@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
-    return view('welcome');
+    $data['tasks'] = [];
+    return view('tasks.index',$data);
 });

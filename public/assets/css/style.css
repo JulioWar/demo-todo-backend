@@ -1,0 +1,110 @@
+/**
+ * ESTILO GENERAL
+ */
+
+body {
+    background-color: #eee;
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+ul {
+    margin:0px;
+    padding:0px;
+}
+
+.no-padding {
+    padding: 0;
+}
+.navbar {
+    border-radius: 0px !important;
+}
+
+
+/**
+ * ESTILO PARA LA AGENDA
+ */
+.actions {
+    margin-top:13px;
+    margin-right:10px;
+}
+
+.agenda {
+    box-shadow: 0 6px 52px gray;
+    margin-bottom: 60px;
+    background-color: #492d25;
+}
+
+.controls{
+    height: 300px;
+}
+
+.description-top {
+    width: 100%;
+    padding: 5px;
+    padding-left:20px;
+    background-color: #fcdd87;
+    overflow: hidden;
+}
+.navegacion {
+    padding: 5px 10px 10px 10px;
+    margin-bottom: 50px;
+}
+.navegacion h3 {
+    text-align: center;
+    color: white;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.tasks {
+    background-color: #ffe9ac;
+    position: relative;
+    padding: 0px;
+}
+.tasks ul {
+    height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.tasks li {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    padding: 10px ;
+    border-bottom: 1px solid black;
+    list-style: none;
+}
+
+.tasks li.complete {
+    text-decoration: line-through;
+    color: #666;
+}
+
+/**
+ * ESTILO PARA EL FOOTER
+ */
+
+footer{
+    padding:10px;
+    margin-top: 90px;
+    background-color: #ccc;
+}
+
+footer h3{
+    text-align: center;
+    font-size: 16px;
+}
+
+/**
+ * ESTILO EN DISPOSITIVOS PEQUEÑOS
+ */
+@media (max-width: 990px) {
+  .tasks ul {
+    height: auto;
+  }
+}
