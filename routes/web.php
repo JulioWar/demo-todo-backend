@@ -17,15 +17,18 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
-    Route::get('/', function () {
+    Route::get('/', function (Request $request) {
         $tasks = \App\Models\Task::where('date',date('Y-m-d'))
+            ->where('user_id',$request->user()->id)
             ->get();
 
         $data['tasks'] = $tasks;
         return view('tasks.index',$data);
     });
-    Route::get('/tasks/{date}', function ($date) {
-        $tasks = \App\Models\Task::where('date',$date)
+
+    Route::get('/tasks/{date}', function (Request $request, $date) {
+        $tasks = $request->user()->tasks()
+            ->where('date',$date)
             ->get();
 
         $data['date'] = $date;
