@@ -4,10 +4,21 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 @endsection
 
+@php
+    $today = (isset($date)) ? $date : date('Y-m-d');
+
+    $date = new DateTime($today);
+    $date->modify('-1 day');
+    $yesterday = $date->format('Y-m-d');
+
+    $date->modify('+2 day');
+    $tomorrow = $date->format('Y-m-d');
+@endphp
+
 @section('content')
     <div class="container">
         <div class="jumbotron">
-            <h1>Hola, Usuario!</h1>
+            <h1>Hola, {{ Auth::user()->name }}!</h1>
             <p>hoy tenemos muchas cosas por realizar. :p</p>
         </div>
     </div>
@@ -15,14 +26,14 @@
         <div class="row">
             <div class="controls col-md-3">
                 <div class="navegacion">
-                    <a href="" class="btn btn-danger">
+                    <a href="{{ url('tasks/'.$yesterday) }}" class="btn btn-danger">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
 
-                    <a href="" class="btn btn-danger">
+                    <a href="{{ url('tasks/'.$tomorrow) }}" class="btn btn-danger">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
-                    <h3>24/9/2014</h3>
+                    <h3>{{ $today }}</h3>
                 </div>
                 <form role="form" action="{{ url('tasks') }}">
                     {{ csrf_field() }}
