@@ -17,3 +17,7 @@ Route::get('/', function () {
     $data['tasks'] = [];
     return view('tasks.index',$data);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
